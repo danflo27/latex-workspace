@@ -1,0 +1,47 @@
+name: Build LaTeX PDFs
+
+on:
+  pull_request:
+    paths:
+      - "presentations/**"
+      - "themes/**"
+      - "**/*.tex"
+      - "**/*.cls"
+      - "**/*.sty"
+      - "**/*.bib"
+      - ".github/workflows/**"
+  push:
+    branches: ["main"]
+    paths:
+      - "presentations/**"
+      - "themes/**"
+      - "**/*.tex"
+      - "**/*.cls"
+      - "**/*.sty"
+      - "**/*.bib"
+      - ".github/workflows/**"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout (with Git LFS)
+        uses: actions/checkout@v4
+        with:
+          lfs: true
+
+      - name: Build PDFs (all presentations)
+        uses: xu-cheng/latex-action@v3
+        with:
+          compiler: latexmk
+          root_file: "presentations/**/main.tex"
+          glob_root_file: true
+          work_in_root_file_dir: true
+          args: "-pdf -file-line-error -halt-on-error -interaction=nonstopmode"
+
+      - name: Upload PDFs
+        uses: actions/upload-artifact@v4
+        with:
+          name: built-pdfs
+          path: "presentations/**/main.pdf"
+

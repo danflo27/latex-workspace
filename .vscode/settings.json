@@ -1,0 +1,38 @@
+{
+  "latex-workshop.latex.env": {
+    "PATH": "/Library/TeX/texbin:${env:PATH}"
+  },
+
+  "latex-workshop.latex.tools": [
+    {
+      "name": "latexmk",
+      "command": "/Library/TeX/texbin/latexmk",
+      "args": [
+        "-interaction=nonstopmode",
+        "-file-line-error",
+        "-pdf",
+        "-outdir=%OUTDIR%",
+        "%DOC%"
+      ],
+      "env": {
+        "PATH": "/Library/TeX/texbin:/usr/bin:/bin:/usr/sbin:/sbin"
+      }
+    }
+  ],
+  "latex-workshop.latex.recipes": [
+    {
+      "name": "latexmk (pdf)",
+      "tools": ["latexmk"]
+    }
+  ],
+
+  "latex-workshop.latex.autoBuild.run": "onSave",
+  "latex-workshop.view.pdf.viewer": "tab",
+
+  "latex-workshop.latex.autoClean.run": "onBuilt",
+  "latex-workshop.latex.clean.command": "/Library/TeX/texbin/latexmk",
+  "latex-workshop.latex.clean.args": ["-outdir=%OUTDIR%", "-c", "%TEX%"],
+
+  "latex-workshop.latex.outDir": "%DIR%"
+}
+

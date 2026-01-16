@@ -1,6 +1,6 @@
 ### LaTeX workspace (Tellor presentations collection)
 
-This workspace is a **collection of LaTeX projects** (presentations, templates, exports) that share a Tellor-branded Beamer theme, with the expectation that **different projects may use different versions** of the theme over time.
+This workspace is a **collection of LaTeX projects**  that share a Tellor-branded Beamer theme, with the expectation that **different projects may use different versions** of the theme over time.
 
 ---
 

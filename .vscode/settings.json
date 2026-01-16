@@ -30,9 +30,29 @@
   "latex-workshop.view.pdf.viewer": "tab",
 
   "latex-workshop.latex.autoClean.run": "onBuilt",
-  "latex-workshop.latex.clean.command": "/Library/TeX/texbin/latexmk",
-  "latex-workshop.latex.clean.args": ["-outdir=%OUTDIR%", "-c", "%TEX%"],
+  "latex-workshop.latex.clean.method": "glob",
+  "latex-workshop.latex.clean.fileTypes": [
+    "%DOCFILE%.aux",
+    "%DOCFILE%.bbl",
+    "%DOCFILE%.bcf",
+    "%DOCFILE%.blg",
+    "%DOCFILE%.fdb_latexmk",
+    "%DOCFILE%.fls",
+    "%DOCFILE%.idx",
+    "%DOCFILE%.ilg",
+    "%DOCFILE%.ind",
+    "%DOCFILE%.lof",
+    "%DOCFILE%.log",
+    "%DOCFILE%.lot",
+    "%DOCFILE%.nav",
+    "%DOCFILE%.out",
+    "%DOCFILE%.run.xml",
+    "%DOCFILE%.snm",
+    "%DOCFILE%.synctex.gz",
+    "%DOCFILE%.toc",
+    "%DOCFILE%.vrb"
+  ],
 
-  "latex-workshop.latex.outDir": "%DIR%"
+  "latex-workshop.latex.outDir": "%DIR%/.build"
 }
 

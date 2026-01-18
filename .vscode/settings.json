@@ -8,6 +8,7 @@
       "name": "latexmk",
       "command": "/Library/TeX/texbin/latexmk",
       "args": [
+        "-synctex=1",
         "-interaction=nonstopmode",
         "-file-line-error",
         "-pdf",
@@ -26,10 +27,12 @@
     }
   ],
 
-  "latex-workshop.latex.autoBuild.run": "onSave",
+  "latex-workshop.latex.recipe.default": "latexmk (pdf)",
+  "latex-workshop.latex.autoBuild.run": "never",
   "latex-workshop.view.pdf.viewer": "tab",
+  "latex-workshop.view.autoFocus.enabled": false,
 
-  "latex-workshop.latex.autoClean.run": "onBuilt",
+  "latex-workshop.latex.autoClean.run": "never",
   "latex-workshop.latex.clean.method": "glob",
   "latex-workshop.latex.clean.fileTypes": [
     "%DOCFILE%.aux",

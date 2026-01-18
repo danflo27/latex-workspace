@@ -1,0 +1,390 @@
+% Switch theme by setting this to Tellor or TellorLight
+\def\TellorDeckClass{Tellor}
+\documentclass{\TellorDeckClass}
+
+\title{Tellor Theme Showcase}
+\subtitle{A Complete Guide to Theme Features}
+\author{Theme Documentation}
+\date{\today}
+
+\graphicspath{{assets/}{assets/brand/}}
+
+\begin{document}
+
+% =============================================================================
+% TITLE SLIDE
+% =============================================================================
+\begin{frame}
+    \titlepage
+\end{frame}
+
+% =============================================================================
+% TABLE OF CONTENTS
+% =============================================================================
+\begin{frame}{Overview}
+    \begin{itemize}
+        \item Typography \& Text Styling
+        \item Lists \& Bullet Points
+        \item Blocks \& Containers
+        \item Custom Commands
+        \item Layout Examples
+    \end{itemize}
+\end{frame}
+
+% =============================================================================
+% TYPOGRAPHY
+% =============================================================================
+\begin{frame}{Typography}
+    Regular text appears in clean, modern Source Sans Pro.
+    
+    \begin{itemize}
+        \item \textbf{Bold text} for emphasis
+        \item \textit{Italic text} for definitions
+        \item \texttt{Monospace} for code or technical terms
+    \end{itemize}
+    
+    \vspace{1em}
+    
+    Use \highlight{highlight} for key terms that need to stand out.
+    
+    Use \alert{alert} for important warnings or emphasis.
+\end{frame}
+
+% =============================================================================
+% BULLET LEVELS
+% =============================================================================
+\begin{frame}{List Hierarchy}
+    \begin{itemize}
+        \item First level items use green circles
+        \begin{itemize}
+            \item Second level uses green diamonds
+            \begin{itemize}
+                \item Third level uses gray circles
+                \item Maintains visual hierarchy
+            \end{itemize}
+            \item Back to second level
+        \end{itemize}
+        \item Another first level item
+    \end{itemize}
+\end{frame}
+
+% =============================================================================
+% NUMBERED LISTS
+% =============================================================================
+\begin{frame}{Numbered Lists}
+    \begin{enumerate}
+        \item First step in the process
+        \item Second step follows naturally
+        \item Third step completes the sequence
+    \end{enumerate}
+    
+    \vspace{1em}
+    
+    \begin{enumerate}
+        \item[\highlight{A.}] Custom labeled item
+        \item[\highlight{B.}] Another custom label
+        \item[\highlight{C.}] Final custom label
+    \end{enumerate}
+\end{frame}
+
+% =============================================================================
+% ARROW COMMAND
+% =============================================================================
+\begin{frame}{Arrow Indicators}
+    Use arrows to show flow or relationships:
+    
+    \begin{itemize}
+        \item \highlight{Input} \arrow Processing \arrow \highlight{Output}
+        \item \highlight{Query} \arrow Reporter \arrow \highlight{Data}
+        \item \highlight{Stake} \arrow Validate \arrow \highlight{Reward}
+    \end{itemize}
+    
+    \vspace{1em}
+    
+    Arrows create visual flow and guide the reader through processes.
+\end{frame}
+
+% =============================================================================
+% TRB TOKEN STYLING
+% =============================================================================
+\begin{frame}{TRB Token Display}
+    The \texttt{\textbackslash trb\{\}} command formats token amounts:
+    
+    \vspace{1em}
+    
+    \begin{itemize}
+        \item Minimum stake: \trb{100}
+        \item Reporter reward: \trb{25}
+        \item Dispute bond: \trb{500}
+        \item Total supply: \trb{2,548,760}
+    \end{itemize}
+    
+    \vspace{1em}
+    
+    Token amounts are automatically styled with accent color and bold text.
+\end{frame}
+
+% =============================================================================
+% STANDARD BLOCKS
+% =============================================================================
+\begin{frame}{Standard Blocks}
+    \titlebox{Definition}{
+        A \highlight{block} is a container for grouped content with a title and body. Blocks help organize information visually.
+    }
+    
+    \vspace{0.5em}
+    
+    \titlebox{Key Point}{
+        Blocks use the accent color for titles and a subtle background for the body content.
+    }
+\end{frame}
+
+% =============================================================================
+% EXAMPLE BLOCKS
+% =============================================================================
+\begin{frame}{Example Blocks}
+    \ex{
+        This is an example block created with the \texttt{\textbackslash ex\{\}} command. It uses emerald green for the title.
+    }
+    
+    \vspace{0.5em}
+    
+    \ex{
+        Examples are perfect for code snippets, formulas, or practical demonstrations of concepts.
+    }
+\end{frame}
+
+% =============================================================================
+% WARNING & INFO BLOCKS
+% =============================================================================
+\begin{frame}{Warning \& Info Blocks}
+    \begin{warningblock}{Caution}
+        This is a warning block for important alerts, security notices, or breaking changes.
+    \end{warningblock}
+    
+    \vspace{0.5em}
+    
+    \begin{infoblock}{Note}
+        This is an info block for tips, additional context, or helpful information.
+    \end{infoblock}
+\end{frame}
+
+% =============================================================================
+% COLUMNS LAYOUT
+% =============================================================================
+\begin{frame}{Two-Column Layout}
+    \begin{columns}[T]
+        \begin{column}{0.48\textwidth}
+            \titlebox{Left Column}{
+                \begin{itemize}
+                    \item First point
+                    \item Second point
+                    \item Third point
+                \end{itemize}
+            }
+        \end{column}
+        \begin{column}{0.48\textwidth}
+            \titlebox{Right Column}{
+                \begin{itemize}
+                    \item Alpha item
+                    \item Beta item
+                    \item Gamma item
+                \end{itemize}
+            }
+        \end{column}
+    \end{columns}
+\end{frame}
+
+% =============================================================================
+% COMPARISON LAYOUT
+% =============================================================================
+\begin{frame}{Comparison View}
+    \begin{columns}[T]
+        \begin{column}{0.48\textwidth}
+            \titlebox{Traditional Oracles}{
+                \begin{itemize}
+                    \item Centralized sources
+                    \item Single point of failure
+                    \item Limited transparency
+                \end{itemize}
+            }
+        \end{column}
+        \begin{column}{0.48\textwidth}
+            \titlebox{Tellor Protocol}{
+                \begin{itemize}
+                    \item \highlight{Decentralized} reporters
+                    \item \highlight{Censorship resistant}
+                    \item \highlight{Fully transparent}
+                \end{itemize}
+            }
+        \end{column}
+    \end{columns}
+\end{frame}
+
+% =============================================================================
+% STATISTICS DISPLAY
+% =============================================================================
+\begin{frame}{Key Metrics}
+    \begin{columns}[c]
+        \begin{column}{0.3\textwidth}
+            \centering
+            {\Huge\textcolor{TellorAccent}{150+}}\\[0.3em]
+            {\small Active Reporters}
+        \end{column}
+        \begin{column}{0.3\textwidth}
+            \centering
+            {\Huge\textcolor{TellorAccent}{50M+}}\\[0.3em]
+            {\small Data Points}
+        \end{column}
+        \begin{column}{0.3\textwidth}
+            \centering
+            {\Huge\textcolor{TellorAccent}{99.9\%}}\\[0.3em]
+            {\small Uptime}
+        \end{column}
+    \end{columns}
+    
+    \vspace{1.5em}
+    
+    \begin{columns}[c]
+        \begin{column}{0.3\textwidth}
+            \centering
+            {\Huge\textcolor{TellorAccent}{15+}}\\[0.3em]
+            {\small Chains Supported}
+        \end{column}
+        \begin{column}{0.3\textwidth}
+            \centering
+            {\Huge\textcolor{TellorAccent}{\$2B+}}\\[0.3em]
+            {\small Value Secured}
+        \end{column}
+        \begin{column}{0.3\textwidth}
+            \centering
+            {\Huge\textcolor{TellorAccent}{5+}}\\[0.3em]
+            {\small Years Live}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+% =============================================================================
+% TIMELINE / PROCESS
+% =============================================================================
+\begin{frame}{Process Flow}
+    \begin{center}
+        \begin{tabular}{ccccccc}
+            \textcolor{TellorAccent}{\Large\textbf{1}} & & 
+            \textcolor{TellorAccent}{\Large\textbf{2}} & & 
+            \textcolor{TellorAccent}{\Large\textbf{3}} & & 
+            \textcolor{TellorAccent}{\Large\textbf{4}} \\[0.3em]
+            Query & \arrow & Stake & \arrow & Report & \arrow & Validate \\[0.5em]
+            {\scriptsize\textcolor{TellorGray}{Submit}} & & 
+            {\scriptsize\textcolor{TellorGray}{Lock TRB}} & & 
+            {\scriptsize\textcolor{TellorGray}{Provide Data}} & & 
+            {\scriptsize\textcolor{TellorGray}{Verify}} \\
+        \end{tabular}
+    \end{center}
+    
+    \vspace{1em}
+    
+    \begin{infoblock}{How It Works}
+        Each step in the process is secured by economic incentives and cryptographic verification.
+    \end{infoblock}
+\end{frame}
+
+% =============================================================================
+% QUOTE / CALLOUT
+% =============================================================================
+\begin{frame}{Featured Quote}
+    \vspace{1em}
+    
+    \begin{center}
+        {\Large\textit{``Decentralized data is the foundation}}\\[0.3em]
+        {\Large\textit{of a trustless economy.''}}
+    \end{center}
+    
+    \vspace{1em}
+    
+    \begin{flushright}
+        \textcolor{TellorGray}{--- Tellor Whitepaper}
+    \end{flushright}
+    
+    \vspace{1em}
+    
+    \begin{center}
+        {\color{TellorDeepPine}\rule{6cm}{1.5pt}}
+    \end{center}
+\end{frame}
+
+% =============================================================================
+% TABLE DISPLAY
+% =============================================================================
+\begin{frame}{Data Table}
+    \begin{center}
+        \begin{tabular}{lrr}
+            \toprule
+            \textbf{Feed Type} & \textbf{Updates} & \textbf{Reporters} \\
+            \midrule
+            ETH/USD & 1,250,000 & 45 \\
+            BTC/USD & 1,180,000 & 42 \\
+            TRB/USD & 890,000 & 38 \\
+            MATIC/USD & 720,000 & 35 \\
+            \midrule
+            \textbf{Total} & \textbf{4,040,000} & --- \\
+            \bottomrule
+        \end{tabular}
+    \end{center}
+    
+    \vspace{0.5em}
+    
+    \begin{center}
+        \textcolor{TellorGray}{\scriptsize Data as of \today}
+    \end{center}
+\end{frame}
+
+% =============================================================================
+% MIXED CONTENT
+% =============================================================================
+\begin{frame}{Feature Highlights}
+    \begin{columns}[T]
+        \begin{column}{0.55\textwidth}
+            \begin{itemize}
+                \item \highlight{Permissionless} \arrow Anyone can report
+                \item \highlight{Transparent} \arrow All data on-chain
+                \item \highlight{Secure} \arrow Staking mechanism
+                \item \highlight{Flexible} \arrow Any data type
+            \end{itemize}
+            
+            \vspace{0.5em}
+            
+            Minimum stake requirement: \trb{100}
+        \end{column}
+        \begin{column}{0.42\textwidth}
+            \begin{warningblock}{Important}
+                Disputes can result in stake slashing.
+            \end{warningblock}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+% =============================================================================
+% CLOSING SLIDE
+% =============================================================================
+\begin{frame}{}
+    \vspace{2cm}
+    
+    \begin{center}
+        {\Large \highlight{Theme Showcase Complete}}
+        
+        \vspace{0.5em}
+        
+        {\color{TellorDeepPine}\rule{4cm}{1.5pt}}
+        
+        \vspace{1cm}
+        
+        {\textcolor{TellorGray}{Built with the Tellor Beamer Theme}}
+        
+        \vspace{0.5em}
+        
+        {\textcolor{TellorGray}{tellor.io}}
+    \end{center}
+\end{frame}
+
+\end{document}

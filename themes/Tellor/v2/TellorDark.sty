@@ -1,0 +1,80 @@
+\ProvidesPackage{TellorDark}
+%
+% Tellor theme variant: dark
+%
+
+% Variant-specific knobs
+\renewcommand{\TellorFrameTitleTopVspace}{0.5cm}
+
+% Aliases for easy theming
+\colorlet{TellorDark}{TellorInkwell}
+\colorlet{TellorAccent}{TellorPine}
+\colorlet{TellorLight}{TellorWhite}
+\colorlet{TellorGray}{TellorOpal}
+
+% Block palette (contrast-first)
+\colorlet{TellorBlockTitleBg}{TellorEmerald}
+\colorlet{TellorBlockTitleFg}{TellorWhite}
+\colorlet{TellorBlockBodyBg}{TellorNeptune!70!TellorDark}
+\colorlet{TellorBlockBodyFg}{TellorWhite}
+\colorlet{TellorExampleTitleBg}{TellorBlockTitleBg}
+\colorlet{TellorExampleTitleFg}{TellorBlockTitleFg}
+\colorlet{TellorRule}{TellorAccent}
+
+% TITLE GRAPHIC
+\titlegraphic{ \includegraphics[width=0.35\textwidth]{TellorLogo} }
+
+% COLORS
+\setbeamercolor{background canvas}{bg=TellorDark}
+\setbeamercolor{title}{fg=TellorLight}
+\setbeamercolor{subtitle}{fg=TellorGray}
+\setbeamercolor{author}{fg=TellorGray}
+\setbeamercolor{date}{fg=TellorGray}
+\setbeamercolor{normal text}{fg=TellorLight}
+\setbeamercolor{frametitle}{fg=TellorWordmarkTeal}
+\setbeamercolor{structure}{fg=TellorAccent}
+\setbeamercolor{item}{fg=TellorAccent}
+\setbeamercolor{subitem}{fg=TellorAccent}
+\setbeamercolor{itemize/enumerate body}{fg=TellorLight}
+
+% Blocks
+\setbeamercolor{block title}{fg=TellorBlockTitleFg, bg=TellorBlockTitleBg}
+\setbeamercolor{block body}{fg=TellorBlockBodyFg, bg=TellorBlockBodyBg}
+\setbeamercolor{block title example}{fg=TellorBlockTitleFg, bg=TellorBlockTitleBg}
+\setbeamercolor{block body example}{fg=TellorBlockBodyFg, bg=TellorBlockBodyBg}
+
+% Alert text styling (for \alert{} command)
+\setbeamercolor{alerted text}{fg=TellorAccent}
+\setbeamerfont{alerted text}{series=\bfseries}
+
+% FOOTER
+\setbeamercolor{footline}{bg=TellorDark, fg=TellorLight}
+\setbeamertemplate{footline}{%
+    \begin{beamercolorbox}[wd=\paperwidth, ht=0.8cm, dp=0.2cm, leftskip=\TellorSideMargin, rightskip=\TellorSideMargin]{footline}
+        \raisebox{0.15cm}{\includegraphics[height=0.5cm]{TellorWordAndIcon.png}}%
+    \end{beamercolorbox}
+}
+
+% TITLE PAGE TEMPLATE (same layout, dark palette)
+\setbeamertemplate{title page}{%
+    \vfill
+    \begin{beamercolorbox}[wd=\paperwidth, leftskip=\TellorSideMargin, rightskip=\TellorSideMargin]{title}
+        \usebeamerfont{title}\inserttitle\par
+        \vspace{0.3cm}
+    \end{beamercolorbox}
+    \vspace{0.5cm}
+    \begin{beamercolorbox}[wd=\paperwidth, leftskip=\TellorSideMargin, rightskip=\TellorSideMargin]{subtitle}
+        \usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle\par
+    \end{beamercolorbox}
+    \vspace{1cm}
+    \begin{beamercolorbox}[wd=\paperwidth, leftskip=\TellorSideMargin, rightskip=\TellorSideMargin]{author}
+        \usebeamerfont{author}\usebeamercolor[fg]{author}\insertauthor\par
+    \end{beamercolorbox}
+    \vspace{0.3cm}
+    \begin{beamercolorbox}[wd=\paperwidth, leftskip=\TellorSideMargin, rightskip=\TellorSideMargin]{date}
+        \usebeamerfont{date}\usebeamercolor[fg]{date}\insertdate\par
+    \end{beamercolorbox}
+    \vfill
+    \vspace{0.5cm}
+}
+

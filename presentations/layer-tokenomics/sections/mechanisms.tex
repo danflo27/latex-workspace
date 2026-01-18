@@ -1,0 +1,50 @@
+\section{Mechanisms}
+
+\begin{frame}{Where rewards come from (overview)}
+  \begin{itemize}
+    \item Time-based rewards: inflation + optional bootstrap “extra rewards” pool.
+    \item Tips: user-funded; 2\% burned; net goes to escrow-backed entitlements.
+    \item Disputes: fees, burns, voter rewards, slashing/jailing (security lever).
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Time-based rewards (high level)}
+  \begin{itemize}
+    \item Inflationary rewards are distributed continuously (block-time proportional).
+    \item Split: \textbf{75\%} to reporter incentive stream; \textbf{25\%} to validator distribution stream.
+    \item Framing: incentives for operating / securing / servicing, not guaranteed “yield”.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Bootstrap extra rewards}
+  \begin{itemize}
+    \item Extra rewards are pre-funded and distributed at a configured rate.
+    \item Use this slide to explain early-phase bootstrap vs steady-state.
+    \item \textbf{PLACEHOLDER}: current pool size, runway estimate (pull from profitability checker).
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Tips: burn + escrow (why it exists)}
+  \begin{itemize}
+    \item 2\% tip burn \arrow cost of influence / discourages spam.
+    \item Net tips are escrow-backed until withdrawn.
+    \item Tips create a demand-driven reward component (not only emissions).
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Disputes (security lever)}
+  \begin{itemize}
+    \item Fees scale by dispute level; outcomes can trigger slashing/jailing.
+    \item A portion is burned; a portion becomes voter reward pool.
+    \item \textbf{PLACEHOLDER}: dispute activity stats (count, size, outcomes).
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Security coverage lens (setup)}
+  \begin{itemize}
+    \item Security comes from bonded stake at risk + credible dispute penalties.
+    \item Define: coverage = stake-at-risk / value-secured.
+    \item \textbf{PLACEHOLDER}: define value-secured per integration (TVL, notional, etc.).
+  \end{itemize}
+\end{frame}
+

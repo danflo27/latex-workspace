@@ -1,0 +1,71 @@
+\section{Operator economics}
+
+\begin{frame}{Operator cost model}
+  \begin{itemize}
+    \item Reporting tx fees (measured from recent \texttt{MsgSubmitValue} transactions).
+    \item Operational overhead (infra, monitoring, on-call): \textbf{PLACEHOLDER} assumptions.
+    \item Tail risks: downtime, missed reports, dispute risk (non-zero expected cost).
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Operator revenue model}
+  \begin{itemize}
+    \item Revenue sources:
+      \begin{itemize}
+        \item time-based rewards allocation
+        \item tip earnings (net of burn)
+        \item dispute-related flows (case-dependent)
+      \end{itemize}
+    \item Frame as compensation for service performed \arrow not “guaranteed yield”.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Break-even}
+  \begin{itemize}
+    \item Break-even is where rewards share \(\approx\) reporting costs (+ overhead).
+    \item Sensitivities: block time, fees, mint/extra rate, reporting frequency.
+    \item \textbf{PLACEHOLDER}: insert current break-even estimate from profitability checker.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{APR vs stake (chart)}
+  \centering
+  \includegraphics[width=\linewidth]{assets/figures/current_apr_chart.png}
+
+  \vspace{0.5em}
+  \footnotesize
+  \textcolor{TellorGray}{Source: profitability checker output at \texttt{layer-profitability-checker/current\_apr\_chart.png}.}
+\end{frame}
+
+\begin{frame}{APR vs total network stake (adoption / saturation)}
+  \centering
+  \includegraphics[width=\linewidth]{assets/figures/apr_by_total_stake.png}
+
+  \vspace{0.5em}
+  \footnotesize
+  \textcolor{TellorGray}{Source: profitability checker output at \texttt{layer-profitability-checker/apr\_by\_total\_stake.png}.}
+\end{frame}
+
+\begin{frame}{Realized vs modeled earnings (credibility)}
+  \begin{itemize}
+    \item Use \texttt{rewards\_accumulated} events + 24h balance deltas for a sample address.
+    \item Compare against modeled expectation over the same period.
+    \item \textbf{PLACEHOLDER}: choose address + sample window.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Tips market snapshot (demand signal)}
+  \begin{itemize}
+    \item Current tipped queries + totals (from checker).
+    \item Message: users paying for data \arrow demand-driven component.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Stake/power distribution (competition + concentration)}
+  \begin{itemize}
+    \item Validator stake distribution (box/whisker + histogram).
+    \item Reporter power distribution (active vs inactive vs jailed).
+    \item Message: concentration is a measurable risk dimension.
+  \end{itemize}
+\end{frame}
+

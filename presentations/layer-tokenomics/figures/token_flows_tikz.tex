@@ -1,0 +1,48 @@
+\begin{tikzpicture}[
+  node distance=8mm and 12mm,
+  font=\scriptsize,
+  box/.style={draw, rounded corners=2pt, align=center, minimum width=20mm, minimum height=7mm},
+  money/.style={box, fill=TellorNeptune!25},
+  mech/.style={box, fill=TellorEmerald!25},
+  sink/.style={box, fill=orange!25},
+  arrow/.style={-{Latex[length=2mm]}, line width=0.6pt},
+  lbl/.style={midway, fill=TellorDark, text=TellorLight, inner sep=1pt, rounded corners=1pt, align=center}
+]
+
+% Top: mint + split
+\node[mech] (mint) {Minter\\(inflation)};
+\node[money, right=of mint] (tbr) {time\_based\\\_rewards};
+\node[money, below=of tbr] (fee) {fee\\collector};
+
+\draw[arrow] (mint) -- node[lbl] {75\%} (tbr);
+\draw[arrow] (mint) |- node[lbl, near start] {25\%} (fee);
+
+% Extra rewards
+\node[mech, left=of fee] (extra) {extra\\rewards\\pool};
+\draw[arrow] (extra) -- node[lbl] {75\%} (tbr);
+\draw[arrow] (extra) -- node[lbl] {25\%} (fee);
+
+% Escrow
+\node[money, right=of tbr] (escrow) {tips\\escrow\\pool};
+\draw[arrow] (tbr) -- (escrow);
+
+% Tips + burn
+\node[mech, above=of escrow] (tips) {tips};
+\node[sink, right=of tips] (burn) {burn};
+\draw[arrow] (tips) -- node[lbl] {2\%} (burn);
+\draw[arrow] (tips) -- node[lbl] {98\%} (escrow);
+
+% Withdraw into staking
+\node[money, below=of escrow] (staking) {staking\\(bonded)};
+\draw[arrow] (escrow) -- node[lbl] {withdraw\\\& delegate} (staking);
+
+% Dispute flow
+\node[mech, left=of staking] (disputeFee) {dispute\\fee};
+\node[money, left=of escrow] (disputeMod) {dispute\\module};
+\node[mech, below=of disputeMod] (voters) {voter\\rewards};
+\draw[arrow] (disputeFee) -- (disputeMod);
+\draw[arrow] (disputeMod) -- node[lbl] {burn\\portion} (burn);
+\draw[arrow] (disputeMod) -- node[lbl] {reward\\portion} (voters);
+
+\end{tikzpicture}
+

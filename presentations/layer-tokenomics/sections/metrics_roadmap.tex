@@ -1,0 +1,39 @@
+% Metrics roadmap section (slide content; details live in notes/docs)
+
+\section{Metrics roadmap}
+
+\begin{frame}{Metrics roadmap (what we can measure vs what we need)}
+\small
+\begin{itemize}
+  \item Goal: support operator-economics messaging (service incentives), quantify break-even drivers, and quantify security coverage.
+  \item \textbf{Guiding rule}: prefer \emph{realized} on-chain evidence over purely modeled APR whenever possible.
+\end{itemize}
+
+\vspace{0.6em}
+\footnotesize
+\begin{tabular}{p{0.62\linewidth} p{0.30\linewidth}}
+\textbf{Metric (priority)} & \textbf{Status}\\
+\hline
+Realized operator P\&L (per address) vs modeled & Partial now; small extension\\
+Security coverage ratio (stake-at-risk / value-secured) & Stake now; value-secured placeholder\\
+Dispute activity + deterrence metrics & Needs dispute queries/events\\
+Tip market depth + concentration & Partial now; add time series + indices\\
+Validator/reporter concentration (top-k, HHI/Gini) & Available now (compute locally)\\
+Reward composition (inflation vs tips vs extra) & Partial now; add realized tips\\
+Sensitivity surfaces (fees, blocktime, rate, freq) & Small extension\\
+Selector economics (validate math before use) & Partial now; needs validation\\
+\end{tabular}
+\end{frame}
+
+\begin{frame}{Top 3 metrics to unlock next (and why)}
+\small
+\begin{enumerate}
+  \item \textbf{Realized operator P\&L}: credibility; avoids “hypothetical yield” framing; ties earnings to service performed.
+  \item \textbf{Security coverage ratio}: directly answers “is security enough to cover what we secure?” (value-secured is a placeholder).
+  \item \textbf{Dispute metrics}: quantifies deterrence/security levers beyond “stake size”.
+\end{enumerate}
+\vspace{0.8em}
+\footnotesize
+Implementation note: we already ingest block results and events; extending to additional module events/queries is straightforward once endpoints are confirmed.
+\end{frame}
+

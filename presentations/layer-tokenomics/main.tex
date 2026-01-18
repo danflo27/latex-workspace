@@ -1,0 +1,44 @@
+\documentclass{Tellor}
+
+\title{Tellor Layer: Incentives, Costs, and Security Coverage}
+\subtitle{Operator economics + token utility (internal draft)}
+\author{Tellor Team}
+\date{\today}
+
+% We keep this deck self-contained for theme files, but for now we reuse brand assets
+% from rewards-presentation until you copy them into layer-tokenomics/assets/brand/.
+\graphicspath{{assets/}{assets/brand/}{../rewards-presentation/assets/}{../rewards-presentation/assets/brand/}}
+
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,shapes.geometric,shapes.misc,fit}
+
+\begin{document}
+
+% Title slide
+\begin{frame}
+  \titlepage
+\end{frame}
+
+% Optional agenda (keep minimal for exec audience)
+\begin{frame}{Agenda}
+  \begin{itemize}
+    \item Framing \& messaging guardrails
+    \item Mechanisms: rewards, tips, disputes
+    \item Operator economics: costs, break-even, scenarios
+    \item What we still need to measure (roadmap)
+  \end{itemize}
+\end{frame}
+
+\input{sections/framing.tex}
+\input{sections/mechanisms.tex}
+\input{sections/token_flows.tex}
+\input{sections/economics.tex}
+\input{sections/external_placeholders.tex}
+\input{sections/metrics_roadmap.tex}
+\input{sections/conclusion.tex}
+
+\appendix
+\input{sections/appendix.tex}
+
+\end{document}
+

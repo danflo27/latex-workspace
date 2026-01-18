@@ -4,7 +4,7 @@
 # Local-only resources (not published)
 /resources/
 
-# LaTeX aux/build artifacts (keep PDFs/exports tracked via Git LFS)
+# LaTeX aux/build artifacts
 *.aux
 *.bbl
 *.bcf

@@ -1,21 +1,19 @@
-\ProvidesClass{Tellor}
+\ProvidesClass{TellorLight}
 %
-% Tellor theme v1 (canonical copy)
-% Projects should vendor/pin this file into their own folder as Tellor.cls.
+% Tellor theme v1 (light variant)
+% Layout-compatible with Tellor.cls, but optimized for light backgrounds.
 %
-
 \LoadClass[12pt]{beamer}
 \RequirePackage{booktabs,pifont}
 
 % MODERN TYPOGRAPHY
-% Source Sans Pro - clean, modern sans-serif suitable for tech/crypto presentations
 \RequirePackage[default,semibold]{sourcesanspro}
-\RequirePackage{sourcecodepro}  % Monospace font for code
+\RequirePackage{sourcecodepro}
 \RequirePackage[T1]{fontenc}
 
 \hypersetup{
     pdfpagemode=UseThumbs,
-    pdfcreator={Tellor Beamer Theme},
+    pdfcreator={Tellor Beamer Theme (Light)},
     pdfproducer={LaTeX with Beamer},
     pdflang={en},
     colorlinks=false,
@@ -27,54 +25,55 @@
 \newcommand{\TellorFrameTitleSize}{\Large}
 
 % TELLOR OFFICIAL BRAND COLORS
-% From Tellor Brand Materials - Colour Palette
-\definecolor{TellorInkwell}{HTML}{191B24}       % Inkwell 950 - Primary dark background
+\definecolor{TellorInkwell}{HTML}{191B24}       % Inkwell 950 - Primary dark
 \definecolor{TellorPine}{HTML}{00D689}          % Pine 400 - Primary green accent
 \definecolor{TellorEmerald}{HTML}{0A7149}       % Emerald 800 - Secondary green
 \definecolor{TellorNeptune}{HTML}{0E5353}       % Neptune 800 - Teal accent
-\definecolor{TellorOpal}{HTML}{AEB6C8}          % Opal 300 - Light gray text
-\definecolor{TellorWhite}{HTML}{FFFFFF}         % White - Primary text
-\definecolor{TellorDeepPine}{HTML}{003421}      % Deep Pine - Header line accent
+\definecolor{TellorOpal}{HTML}{AEB6C8}          % Opal 300 - Light gray
+\definecolor{TellorWhite}{HTML}{FFFFFF}         % White
+\definecolor{TellorDeepPine}{HTML}{003421}      % Deep Pine
 \definecolor{TellorWordmarkTeal}{HTML}{003734}  % Wordmark teal (exact)
 
-% Aliases for easy theming
+% Aliases for easy theming (kept compatible with Tellor.cls usage)
 \colorlet{TellorDark}{TellorInkwell}
 \colorlet{TellorAccent}{TellorPine}
 \colorlet{TellorLight}{TellorWhite}
-\colorlet{TellorGray}{TellorOpal}
+\colorlet{TellorGray}{TellorInkwell!55} % readable gray on white
 
 % Block palette (contrast-first)
-% Avoid light teal/green text on light grey/green backgrounds by ensuring
-% block bodies are sufficiently dark for white + accent text.
-\colorlet{TellorBlockTitleBg}{TellorEmerald}
-\colorlet{TellorBlockTitleFg}{TellorWhite}
-\colorlet{TellorBlockBodyBg}{TellorNeptune!70!TellorDark}
-\colorlet{TellorBlockBodyFg}{TellorWhite}
-\colorlet{TellorExampleTitleBg}{TellorBlockTitleBg}
-\colorlet{TellorExampleTitleFg}{TellorBlockTitleFg}
-\colorlet{TellorRule}{TellorAccent}
+% Key rule: never place bright teal/green text on light grey/green panels.
+% So: keep block bodies white, and use dark text inside.
+\colorlet{TellorBlockTitleBg}{TellorAccent}
+\colorlet{TellorBlockTitleFg}{TellorDark}
+\colorlet{TellorBlockBodyBg}{TellorWhite}
+\colorlet{TellorBlockBodyFg}{TellorDark}
+\colorlet{TellorExampleTitleBg}{TellorEmerald}
+\colorlet{TellorExampleTitleFg}{TellorWhite}
+\colorlet{TellorRule}{TellorNeptune}
 
-% TITLE GRAPHIC
-\titlegraphic{ \includegraphics[width=0.35\textwidth]{TellorLogo} }
+% TITLE GRAPHIC (use colored wordmark on light bg)
+\titlegraphic{ \includegraphics[width=0.35\textwidth]{TellorWordmark} }
 
 \mode<beamer>
 \setbeamertemplate{blocks}[rounded][shadow=true]
 
 % COLORS
-\setbeamercolor{background canvas}{bg=TellorDark}
-\setbeamercolor{title}{fg=TellorLight}
+\setbeamercolor{background canvas}{bg=TellorLight}
+\setbeamercolor{normal text}{fg=TellorDark}
+\setbeamercolor{title}{fg=TellorDark}
 \setbeamercolor{subtitle}{fg=TellorGray}
 \setbeamercolor{author}{fg=TellorGray}
 \setbeamercolor{date}{fg=TellorGray}
-\setbeamercolor{normal text}{fg=TellorLight}
 \setbeamercolor{frametitle}{fg=TellorWordmarkTeal}
 \setbeamercolor{structure}{fg=TellorAccent}
 \setbeamercolor{item}{fg=TellorAccent}
 \setbeamercolor{subitem}{fg=TellorAccent}
-\setbeamercolor{itemize/enumerate body}{fg=TellorLight}
+\setbeamercolor{itemize/enumerate body}{fg=TellorDark}
+
+% Blocks
 \setbeamercolor{block title}{fg=TellorBlockTitleFg, bg=TellorBlockTitleBg}
 \setbeamercolor{block body}{fg=TellorBlockBodyFg, bg=TellorBlockBodyBg}
-\setbeamercolor{block title example}{fg=TellorBlockTitleFg, bg=TellorBlockTitleBg}
+\setbeamercolor{block title example}{fg=TellorExampleTitleFg, bg=TellorExampleTitleBg}
 \setbeamercolor{block body example}{fg=TellorBlockBodyFg, bg=TellorBlockBodyBg}
 
 % FONTS
@@ -92,9 +91,9 @@
 \setbeamertemplate{itemize subitem}{\textcolor{TellorAccent}{\scriptsize\ding{110}}}
 \setbeamertemplate{itemize subsubitem}{\textcolor{TellorGray}{\scriptsize\ding{109}}}
 
-% FRAME TITLE WITH FULL-WIDTH ACCENT BAR (left-aligned, matching footer margins)
+% FRAME TITLE WITH FULL-WIDTH RULE (aligned with footer margins)
 \setbeamertemplate{frametitle}{%
-    \vspace{0.5cm}
+    \vspace{0.9cm}
     \begin{beamercolorbox}[wd=\paperwidth, leftskip=\TellorSideMargin, rightskip=\TellorSideMargin]{frametitle}
         \usebeamerfont{frametitle}\usebeamercolor[fg]{frametitle}\insertframetitle%
     \end{beamercolorbox}
@@ -105,11 +104,11 @@
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{1.5ex}
 
-% FOOTER - Wordmark left, icon right (equal 0.5cm margins)
-\setbeamercolor{footline}{bg=TellorDark, fg=TellorLight}
+% FOOTER
+\setbeamercolor{footline}{bg=TellorLight, fg=TellorDark}
 \setbeamertemplate{footline}{%
     \begin{beamercolorbox}[wd=\paperwidth, ht=0.8cm, dp=0.2cm, leftskip=\TellorSideMargin, rightskip=\TellorSideMargin]{footline}
-        \raisebox{0.15cm}{\includegraphics[height=0.5cm]{TellorWordAndIcon.png}}%
+        \raisebox{0.15cm}{\includegraphics[height=0.5cm]{TellorWordmark}}%
     \end{beamercolorbox}
 }
 
@@ -136,45 +135,42 @@
     \vspace{0.5cm}
 }
 
-% CUSTOM COMMANDS
-
-% Example block with Tellor styling
+% CUSTOM COMMANDS (kept identical for compatibility)
 \newcommand{\ex}[1]{%
 \begin{exampleblock}{\textit{Example}}
 #1
 \end{exampleblock}
 }
 
-% Titled block
 \newcommand{\titlebox}[2]{%
 \begin{block}{#1}
 #2
 \end{block}
 }
 
-% Highlight text with accent color
+% Highlight text with accent color (safe on white)
 \newcommand{\highlight}[1]{\textcolor{TellorAccent}{\textbf{#1}}}
 
 % Alert text styling (for \alert{} command)
-\setbeamercolor{alerted text}{fg=TellorAccent}
+\setbeamercolor{alerted text}{fg=TellorEmerald}
 \setbeamerfont{alerted text}{series=\bfseries}
 
-% Warning block environment
+% Warning block environment (scoped)
 \newenvironment{warningblock}[1]{%
     \begingroup
     \setbeamercolor{block title}{fg=TellorWhite, bg=orange!70!black}
-    \setbeamercolor{block body}{fg=TellorWhite, bg=orange!15!TellorDark}
+    \setbeamercolor{block body}{fg=TellorDark, bg=TellorWhite}
     \begin{block}{#1}
 }{%
     \end{block}%
     \endgroup
 }
 
-% Info block environment  
+% Info block environment (scoped)
 \newenvironment{infoblock}[1]{%
     \begingroup
     \setbeamercolor{block title}{fg=TellorWhite, bg=TellorNeptune}
-    \setbeamercolor{block body}{fg=TellorBlockBodyFg, bg=TellorBlockBodyBg}
+    \setbeamercolor{block body}{fg=TellorDark, bg=TellorWhite}
     \begin{block}{#1}
 }{%
     \end{block}%

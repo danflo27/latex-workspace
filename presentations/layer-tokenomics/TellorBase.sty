@@ -1,0 +1,122 @@
+\ProvidesPackage{TellorBase}
+%
+% Tellor theme base (shared by dark/light variants)
+%
+
+\RequirePackage{booktabs,pifont}
+
+% MODERN TYPOGRAPHY
+\RequirePackage[default,semibold]{sourcesanspro}
+\RequirePackage{sourcecodepro}
+\RequirePackage[T1]{fontenc}
+
+\hypersetup{
+    pdfpagemode=UseThumbs,
+    pdfcreator={Tellor Beamer Theme},
+    pdfproducer={LaTeX with Beamer},
+    pdflang={en},
+    colorlinks=false,
+    pdfborder={0 0 0}
+}
+
+% LAYOUT CONSTANTS (alignment + repetition)
+\newcommand{\TellorSideMargin}{0.5cm}
+\newcommand{\TellorFrameTitleSize}{\Large}
+\newcommand{\TellorFrameTitleTopVspace}{0.5cm} % variant may override
+
+% TELLOR OFFICIAL BRAND COLORS (shared)
+\definecolor{TellorInkwell}{HTML}{191B24}
+\definecolor{TellorPine}{HTML}{00D689}
+\definecolor{TellorEmerald}{HTML}{0A7149}
+\definecolor{TellorNeptune}{HTML}{0E5353}
+\definecolor{TellorOpal}{HTML}{AEB6C8}
+\definecolor{TellorWhite}{HTML}{FFFFFF}
+\definecolor{TellorDeepPine}{HTML}{003421}
+\definecolor{TellorWordmarkTeal}{HTML}{003734}
+
+% Alias colors (defaults; variants may override)
+\colorlet{TellorDark}{TellorInkwell}
+\colorlet{TellorAccent}{TellorPine}
+\colorlet{TellorLight}{TellorWhite}
+\colorlet{TellorGray}{TellorOpal}
+
+% Default block palette (variants may override)
+\colorlet{TellorBlockTitleBg}{TellorEmerald}
+\colorlet{TellorBlockTitleFg}{TellorWhite}
+\colorlet{TellorBlockBodyBg}{TellorNeptune!70!TellorDark}
+\colorlet{TellorBlockBodyFg}{TellorWhite}
+\colorlet{TellorExampleTitleBg}{TellorBlockTitleBg}
+\colorlet{TellorExampleTitleFg}{TellorBlockTitleFg}
+\colorlet{TellorRule}{TellorAccent}
+
+\mode<beamer>
+\setbeamertemplate{blocks}[rounded][shadow=true]
+
+% FONTS
+\setbeamerfont{title}{size=\Large, series=\bfseries}
+\setbeamerfont{frametitle}{size=\TellorFrameTitleSize, series=\bfseries}
+\setbeamerfont{block title}{size=\large, series=\bfseries}
+\setbeamerfont{block body}{size=\small}
+
+% REMOVE NAVIGATION
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{frametitle continuation}[from second][(\insertcontinuationcount)]
+
+% CUSTOM ITEMIZE BULLETS (colors come from variant)
+\setbeamertemplate{itemize item}{\textcolor{TellorAccent}{\scriptsize\ding{108}}}
+\setbeamertemplate{itemize subitem}{\textcolor{TellorAccent}{\scriptsize\ding{110}}}
+\setbeamertemplate{itemize subsubitem}{\textcolor{TellorGray}{\scriptsize\ding{109}}}
+
+% FRAME TITLE (top spacing is variant-tunable)
+\setbeamertemplate{frametitle}{%
+    \vspace{\TellorFrameTitleTopVspace}
+    \begin{beamercolorbox}[wd=\paperwidth, leftskip=\TellorSideMargin, rightskip=\TellorSideMargin]{frametitle}
+        \usebeamerfont{frametitle}\usebeamercolor[fg]{frametitle}\insertframetitle%
+    \end{beamercolorbox}
+    \vspace{0.2cm}
+}
+
+% PARAGRAPHS
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1.5ex}
+
+% CUSTOM COMMANDS (public API)
+
+\newcommand{\ex}[1]{%
+\begin{exampleblock}{\textit{Example}}
+#1
+\end{exampleblock}
+}
+
+\newcommand{\titlebox}[2]{%
+\begin{block}{#1}
+#2
+\end{block}
+}
+
+\newcommand{\highlight}[1]{\textcolor{TellorAccent}{\textbf{#1}}}
+
+% Warning / info blocks: variants can override block body colors via Tellor* colorlets
+\newenvironment{warningblock}[1]{%
+    \begingroup
+    \setbeamercolor{block title}{fg=TellorWhite, bg=orange!70!black}
+    \setbeamercolor{block body}{fg=TellorBlockBodyFg, bg=orange!15!TellorDark}
+    \begin{block}{#1}
+}{%
+    \end{block}%
+    \endgroup
+}
+
+\newenvironment{infoblock}[1]{%
+    \begingroup
+    \setbeamercolor{block title}{fg=TellorWhite, bg=TellorNeptune}
+    \setbeamercolor{block body}{fg=TellorBlockBodyFg, bg=TellorBlockBodyBg}
+    \begin{block}{#1}
+}{%
+    \end{block}%
+    \endgroup
+}
+
+\newcommand{\arrow}{\hspace{0.5em}\textcolor{TellorAccent}{\ding{212}}\hspace{0.5em}}
+\newcommand{\trb}[1]{\textcolor{TellorAccent}{\textbf{#1 TRB}}}
+
